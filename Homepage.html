@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vote in the 2024 election and watch live results">
+    <meta name="keywords" content="2024 election, voting, live results">
+    <title>Voting Site</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="intro.html">Home</a></li>
+                <li><a href="homepage.html">Voting Info</a></li>
+                <li><a href="policies.html">Policies</a></li>
+            </ul>
+        </nav>
+        
+        <header>
+            <h1 class="election-title" style="color: red;">2024 Election</h1>
+            <p>Cast your vote and watch the live results!</p>
+        </header>
+
+        <main class="voting-section">
+            <div class="candidate-card">
+                <img src="https://www.whitehouse.gov/wp-content/uploads/2021/04/V20210305LJ-0043-cropped.jpg" height="230px" alt="Kamala Harris" aria-label="Candidate A: Kamala Harris">
+                <h1>Kamala Harris</h1>
+                <button onclick="vote('A')">Vote for Kamala Harris</button>
+            </div>
+            <div class="candidate-card">
+                <img src="https://media.vanityfair.com/photos/66bd08692f014df68a35dc46/master/w_1600,c_limit/1975757034.jpg" height="230px" alt="Donald Trump" aria-label="Candidate B: Donald Trump">
+                <h1>Donald Trump</h1>
+                <button onclick="vote('B')">Vote for Donald Trump</button>
+            </div>
+        </main>
+
+        <section class="results-section">
+            <h2>Live Voting Results</h2>
+            <canvas id="resultsChart"></canvas>
+            <p>Total Votes: <span id="totalVotes">0</span></p>
+            <div id="detailedResults" style="display:none;">
+                <h3>Vote Breakdown:</h3>
+                <p>Candidate A: <span id="votesA">0</span> votes (<span id="percentA">0%</span>)</p>
+                <p>Candidate B: <span id="votesB">0</span> votes (<span id="percentB">0%</span>)</p>
+            </div>
+            <button id="showResults" onclick="showDetailedResults()">Show Results</button>
+            <button id="reset" onclick="resetVotes()">Reset</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
