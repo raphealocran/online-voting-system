@@ -1,0 +1,23 @@
+FIX: online-voting-system on Vercel shows 404 and has broken menu links
+-----------------------------------------------------------------------
+Problem 1: the repo has no index.html, so the site root (/) shows Vercel's 404 page.
+Problem 2: menu links use the wrong capitalization (intro.html vs Intro.html).
+           That works on Windows/XAMPP but breaks on Vercel's servers.
+
+Steps (in VS Code, inside your online-voting-system repo folder):
+
+1. Rename Homepage.html to index.html:
+     git mv Homepage.html index.html
+
+2. Copy the two files from this zip over the repo's files:
+     index.html     -> replaces the renamed file (menu links fixed)
+     policies.html  -> replaces policies.html (link to new index.html fixed)
+
+3. Commit and push:
+     git add -A
+     git commit -m "Fix homepage 404 and menu link capitalization for Vercel"
+     git push
+
+Vercel will automatically redeploy. The site root will then load the voting page.
+Note: login.php / signup.php need PHP + MySQL, so they still won't run on Vercel
+(they work with XAMPP locally). The voting page, intro, and policies pages will work.
